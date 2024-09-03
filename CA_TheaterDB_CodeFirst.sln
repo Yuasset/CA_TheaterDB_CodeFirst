@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35219.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA_TheaterDB_CodeFirst", "CA_TheaterDB_CodeFirst\CA_TheaterDB_CodeFirst.csproj", "{22A5C421-A6F2-4A4E-A26F-032482E95561}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22A5C421-A6F2-4A4E-A26F-032482E95561}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22A5C421-A6F2-4A4E-A26F-032482E95561}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22A5C421-A6F2-4A4E-A26F-032482E95561}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22A5C421-A6F2-4A4E-A26F-032482E95561}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E04529D6-027A-4830-8C0B-9EDE3F0D62F1}
+	EndGlobalSection
+EndGlobal
