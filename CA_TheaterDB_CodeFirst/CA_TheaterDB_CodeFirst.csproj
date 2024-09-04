@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\Abstracts\" />
     <Folder Include="Services\Concretes\" />
   </ItemGroup>
 
