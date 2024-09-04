@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CA_TheaterDB_CodeFirst.Migrations
 {
     [DbContext(typeof(TheaterDBContext))]
-    [Migration("20240903174508_deneme1")]
+    [Migration("20240904082516_deneme1")]
     partial class deneme1
     {
         /// <inheritdoc />
@@ -76,11 +76,7 @@ namespace CA_TheaterDB_CodeFirst.Migrations
 
                     b.HasKey("MovieID", "CategoryID");
 
-                    b.HasIndex("CategoryID")
-                        .IsUnique();
-
-                    b.HasIndex("MovieID")
-                        .IsUnique();
+                    b.HasIndex("CategoryID");
 
                     b.ToTable("MovieCategories");
                 });
@@ -179,17 +175,21 @@ namespace CA_TheaterDB_CodeFirst.Migrations
 
             modelBuilder.Entity("CA_TheaterDB_CodeFirst.Entities.MovieCategory", b =>
                 {
-                    b.HasOne("CA_TheaterDB_CodeFirst.Entities.Category", null)
-                        .WithOne("MovieCategory")
-                        .HasForeignKey("CA_TheaterDB_CodeFirst.Entities.MovieCategory", "CategoryID")
+                    b.HasOne("CA_TheaterDB_CodeFirst.Entities.Category", "Category")
+                        .WithMany("MovieCategories")
+                        .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CA_TheaterDB_CodeFirst.Entities.Movie", null)
-                        .WithOne("MovieCategory")
-                        .HasForeignKey("CA_TheaterDB_CodeFirst.Entities.MovieCategory", "MovieID")
+                    b.HasOne("CA_TheaterDB_CodeFirst.Entities.Movie", "Movie")
+                        .WithMany("MovieCategories")
+                        .HasForeignKey("MovieID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Movie");
                 });
 
             modelBuilder.Entity("CA_TheaterDB_CodeFirst.Entities.Theater", b =>
@@ -229,14 +229,12 @@ namespace CA_TheaterDB_CodeFirst.Migrations
 
             modelBuilder.Entity("CA_TheaterDB_CodeFirst.Entities.Category", b =>
                 {
-                    b.Navigation("MovieCategory")
-                        .IsRequired();
+                    b.Navigation("MovieCategories");
                 });
 
             modelBuilder.Entity("CA_TheaterDB_CodeFirst.Entities.Movie", b =>
                 {
-                    b.Navigation("MovieCategory")
-                        .IsRequired();
+                    b.Navigation("MovieCategories");
 
                     b.Navigation("Theater");
                 });

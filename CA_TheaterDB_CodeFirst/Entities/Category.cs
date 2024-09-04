@@ -5,6 +5,6 @@
         public int ID { get; set; }
         public string CategoryName { get; set; }
         //Mapping
-        public MovieCategory MovieCategory { get; set; }
+        public List<MovieCategory> MovieCategories { get; set; }
     }
 }

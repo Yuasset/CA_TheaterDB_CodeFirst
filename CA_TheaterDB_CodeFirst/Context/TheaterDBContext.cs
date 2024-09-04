@@ -33,6 +33,8 @@ namespace CA_TheaterDB_CodeFirst.Context
             modelBuilder.Entity<Category>().Property(category => category.ID).UseIdentityColumn();
             //MovieCategory
             modelBuilder.Entity<MovieCategory>().HasKey(moviecategory => new { moviecategory.MovieID, moviecategory.CategoryID });
+            modelBuilder.Entity<MovieCategory>().HasOne(moviecategory => moviecategory.Movie).WithMany(movie => movie.MovieCategories).HasForeignKey(moviecategory => moviecategory.MovieID);
+            modelBuilder.Entity<MovieCategory>().HasOne(moviecategory => moviecategory.Category).WithMany(category => category.MovieCategories).HasForeignKey(moviecategory => moviecategory.CategoryID);
             //Saloon
             modelBuilder.Entity<Saloon>().HasMany(saloon => saloon.Theater).WithOne(theater => theater.Saloon).HasForeignKey(theater => theater.SaloonID);
             modelBuilder.Entity<Saloon>().Property(saloon => saloon.ID).UseIdentityColumn();

@@ -7,7 +7,7 @@
         public string Description { get; set; }
         public int Duration { get; set; }
         //Mapping
-        public MovieCategory MovieCategory { get; set; }
+        public List<MovieCategory> MovieCategories { get; set; }
         //Mapping
         public List<Theater> Theater { get; set; }
 

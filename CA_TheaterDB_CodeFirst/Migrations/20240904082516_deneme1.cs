@@ -148,14 +148,7 @@ namespace CA_TheaterDB_CodeFirst.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_MovieCategories_CategoryID",
                 table: "MovieCategories",
-                column: "CategoryID",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_MovieCategories_MovieID",
-                table: "MovieCategories",
-                column: "MovieID",
-                unique: true);
+                column: "CategoryID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Theaters_MovieID",
