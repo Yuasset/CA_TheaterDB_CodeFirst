@@ -1,4 +1,5 @@
-﻿using CA_TheaterDB_CodeFirst.Entities;
+﻿using CA_TheaterDB_CodeFirst.Configuration;
+using CA_TheaterDB_CodeFirst.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace CA_TheaterDB_CodeFirst.Context
@@ -27,25 +28,19 @@ namespace CA_TheaterDB_CodeFirst.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Movie
-            modelBuilder.Entity<Movie>().HasMany(movie => movie.Theater).WithOne(theater => theater.Movie).HasForeignKey(theater => theater.MovieID);
-            modelBuilder.Entity<Movie>().Property(movie => movie.ID).UseIdentityColumn();
+            modelBuilder.ApplyConfiguration(new MovieConfiguration());
             //Category
-            modelBuilder.Entity<Category>().Property(category => category.ID).UseIdentityColumn();
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             //MovieCategory
-            modelBuilder.Entity<MovieCategory>().HasKey(moviecategory => new { moviecategory.MovieID, moviecategory.CategoryID });
-            modelBuilder.Entity<MovieCategory>().HasOne(moviecategory => moviecategory.Movie).WithMany(movie => movie.MovieCategories).HasForeignKey(moviecategory => moviecategory.MovieID);
-            modelBuilder.Entity<MovieCategory>().HasOne(moviecategory => moviecategory.Category).WithMany(category => category.MovieCategories).HasForeignKey(moviecategory => moviecategory.CategoryID);
+            modelBuilder.ApplyConfiguration(new MovieCategoryConfiguration());
             //Saloon
-            modelBuilder.Entity<Saloon>().HasMany(saloon => saloon.Theater).WithOne(theater => theater.Saloon).HasForeignKey(theater => theater.SaloonID);
-            modelBuilder.Entity<Saloon>().Property(saloon => saloon.ID).UseIdentityColumn();
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             //Session
-            modelBuilder.Entity<Session>().HasMany(session => session.Theater).WithOne(theater => theater.Session).HasForeignKey(theater => theater.SessionID);
-            modelBuilder.Entity<Session>().Property(session => session.ID).UseIdentityColumn();
+            modelBuilder.ApplyConfiguration(new SessionConfiguration());
             //Week
-            modelBuilder.Entity<Week>().HasMany(week => week.Theater).WithOne(theater => theater.Week).HasForeignKey(theater => theater.WeekID);
-            modelBuilder.Entity<Week>().Property(week => week.ID).UseIdentityColumn();
+            modelBuilder.ApplyConfiguration(new WeekConfiguration());
             //Theater
-            modelBuilder.Entity<Theater>().Property(theater => theater.ID).UseIdentityColumn();
+            modelBuilder.ApplyConfiguration(new TheaterConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }
