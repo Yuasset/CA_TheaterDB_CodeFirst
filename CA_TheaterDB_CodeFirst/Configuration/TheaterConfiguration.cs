@@ -8,7 +8,7 @@ namespace CA_TheaterDB_CodeFirst.Configuration
     {
         public void Configure(EntityTypeBuilder<Theater> builder)
         {
-            //builder.Property(theater => theater.ID).UseIdentityColumn();
+            builder.Property(theater => theater.ID).UseIdentityColumn();
 
             //Seed Data
             builder.HasData(new Theater

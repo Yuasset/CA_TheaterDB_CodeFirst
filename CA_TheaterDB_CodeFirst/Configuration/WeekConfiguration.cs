@@ -10,7 +10,7 @@ namespace CA_TheaterDB_CodeFirst.Configuration
         public void Configure(EntityTypeBuilder<Week> builder)
         {
             builder.HasMany(week => week.Theater).WithOne(theater => theater.Week).HasForeignKey(theater => theater.WeekID);
-            //builder.Property(week => week.ID).UseIdentityColumn();
+            builder.Property(week => week.ID).UseIdentityColumn();
 
             //Seed Data
             builder.HasData(new Week

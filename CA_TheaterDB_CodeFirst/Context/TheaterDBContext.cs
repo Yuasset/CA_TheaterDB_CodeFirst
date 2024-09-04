@@ -34,7 +34,7 @@ namespace CA_TheaterDB_CodeFirst.Context
             //MovieCategory
             modelBuilder.ApplyConfiguration(new MovieCategoryConfiguration());
             //Saloon
-            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new SaloonConfiguration());
             //Session
             modelBuilder.ApplyConfiguration(new SessionConfiguration());
             //Week

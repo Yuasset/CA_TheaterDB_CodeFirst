@@ -9,7 +9,7 @@ namespace CA_TheaterDB_CodeFirst.Configuration
         public void Configure(EntityTypeBuilder<Saloon> builder)
         {
             builder.HasMany(saloon => saloon.Theater).WithOne(theater => theater.Saloon).HasForeignKey(theater => theater.SaloonID);
-            //builder.Property(saloon => saloon.ID).UseIdentityColumn();
+            builder.Property(saloon => saloon.ID).UseIdentityColumn();
 
             //Seed Data
             builder.HasData(new Saloon

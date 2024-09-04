@@ -9,7 +9,7 @@ namespace CA_TheaterDB_CodeFirst.Configuration
         public void Configure(EntityTypeBuilder<Session> builder)
         {
             builder.HasMany(session => session.Theater).WithOne(theater => theater.Session).HasForeignKey(theater => theater.SessionID);
-            //builder.Property(session => session.ID).UseIdentityColumn();
+            builder.Property(session => session.ID).UseIdentityColumn();
 
             //Seed Data
             builder.HasData(new Session
